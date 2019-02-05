@@ -42,6 +42,15 @@ export default class SceneMain extends Phaser.Scene {
     }
     this.game.alignGrid = new AlignGrid(gridConfig, this.game);
     this.game.alignGrid.placeAtIndex(4, this.sb);
+
+    let toggleButton = new ToggleButton({
+      scene: this,
+      backKey: 'toggleBack',
+      onIcon: 'soundOn',
+      offIcon: 'soundOff',
+      event: this.game.G.TOGGLE_SOUND,
+      x: 80, y: 450
+    });
     // END OF WORKAROUND
 
     this.road = new Road({scene: this});
@@ -76,7 +85,6 @@ export default class SceneMain extends Phaser.Scene {
   buttonPressed(params){
     // this.scene.start(params);
     this.game.emitter.emit(this.game.G.PLAY_SOUND, 'cat');
-    this.game.model.soundOn = !this.game.model.soundOn;
   }
   update(){
     // Constant running loop

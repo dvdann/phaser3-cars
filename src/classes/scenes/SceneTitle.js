@@ -27,7 +27,6 @@ export default class SceneTitle extends Phaser.Scene {
     this.alignGrid.placeAtIndex(38, title);
 
     let mediaManager = new MediaManager({scene: this});
-
     // mediaManager.setBackgroundMusic();
 
     let btnStart = new FlatButton({
