@@ -43,14 +43,14 @@ export default class SceneMain extends Phaser.Scene {
     this.game.alignGrid = new AlignGrid(gridConfig, this.game);
     this.game.alignGrid.placeAtIndex(4, this.sb);
 
-    let toggleButton = new ToggleButton({
-      scene: this,
-      backKey: 'toggleBack',
-      onIcon: 'soundOn',
-      offIcon: 'soundOff',
-      event: this.game.G.TOGGLE_SOUND,
-      x: 80, y: 450
-    });
+    // let toggleButton = new ToggleButton({
+    //   scene: this,
+    //   backKey: 'toggleBack',
+    //   onIcon: 'sfxOn',
+    //   offIcon: 'sfxOff',
+    //   event: this.game.G.TOGGLE_SOUND,
+    //   x: 80, y: 450
+    // });
     // END OF WORKAROUND
 
     this.road = new Road({scene: this});
@@ -72,15 +72,17 @@ export default class SceneMain extends Phaser.Scene {
       params: 'SceneOver',
       textConfig: fireText
     });
-    let flatButton2 = new FlatButton({
-      scene: this,
-      key: 'button2',
-      text: 'Destruct!',
-      x: 240, y: 180,
-      event: 'button_pressed',
-      params: 'SceneTitle'
-    });
+    // let flatButton2 = new FlatButton({
+    //   scene: this,
+    //   key: 'button2',
+    //   text: 'Destruct!',
+    //   x: 240, y: 180,
+    //   event: 'button_pressed',
+    //   params: 'SceneTitle'
+    // });
     this.game.emitter.on('button_pressed', this.buttonPressed.bind(this));
+
+    let soundBtn = new SoundButton({scene: this}); // FIXME: Won't work
   }
   buttonPressed(params){
     // this.scene.start(params);

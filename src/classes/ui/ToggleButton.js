@@ -3,7 +3,7 @@ class ToggleButton extends Phaser.GameObjects.Container {
     super(config.scene);
     this.scene = config.scene;
     this.config = config;
-
+    
     this.back = this.scene.add.image(0, 0, config.backKey);
     this.onIcon = this.scene.add.image(0, 0, config.onIcon);
     this.offIcon = this.scene.add.image(0, 0, config.offIcon);
@@ -30,6 +30,8 @@ class ToggleButton extends Phaser.GameObjects.Container {
       this.y = config.y;
     }
 
+    // make this object have height and width properties
+    this.setSize(this.back.displayWidth, this.back.displayHeight);
     this.scene.add.existing(this);
 
     // set event emitter
