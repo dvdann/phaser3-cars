@@ -3,6 +3,7 @@ export default class Model {
     this._score = 0;
     this.soundOn = true;
     this._musicOn = true;
+    this.gameOver = false;
     this.game = game;
   }
 

@@ -25,10 +25,18 @@ export default class SceneMain extends Phaser.Scene {
   create(){
     // Define our objects
     console.log("Ready!");
+
+
     // PART WORKAROUND
 
     this.sb = new ScoreBox({scene: this});
     this.game.model = new Model(this.game);
+
+    // installing some variable from MediaManager
+    let mediaManager = new MediaManager({scene: this});
+    // mediaManager.setBackgroundMusic('backgroundMusic');
+
+    this.game.model.gameOver = false;
 
     // this.game.emitter.emit(this.game.G.SET_SCORE, 99);
     // this.game.emitter.emit(this.game.G.UP_POINTS, 1);
@@ -56,22 +64,22 @@ export default class SceneMain extends Phaser.Scene {
     this.road = new Road({scene: this});
     this.road.x = this.game.config.width / 2;
     this.road.makeLines();
-    this.game.alignGrid.showNumbers();
+    // this.game.alignGrid.showNumbers();
 
     this.input.keyboard.on('keydown_SPACE', event => {
       this.road.changeLanes();
     });
 
-    let fireText = {color: 'black', fontSize: '32px'}
-    let flatButton1 = new FlatButton({
-      scene: this,
-      key: 'button1',
-      text: 'Fire!',
-      x: 240, y: 100,
-      event: 'button_pressed',
-      params: 'SceneOver',
-      textConfig: fireText
-    });
+    // let fireText = {color: 'black', fontSize: '32px'}
+    // let flatButton1 = new FlatButton({
+    //   scene: this,
+    //   key: 'button1',
+    //   text: 'Fire!',
+    //   x: 240, y: 100,
+    //   event: 'button_pressed',
+    //   params: 'SceneOver',
+    //   textConfig: fireText
+    // });
     // let flatButton2 = new FlatButton({
     //   scene: this,
     //   key: 'button2',
@@ -82,11 +90,11 @@ export default class SceneMain extends Phaser.Scene {
     // });
     this.game.emitter.on('button_pressed', this.buttonPressed.bind(this));
 
-    let soundBtn = new SoundButton({scene: this}); // FIXME: Won't work
+    let soundBtn = new SoundButton({scene: this});
   }
   buttonPressed(params){
-    // this.scene.start(params);
-    this.game.emitter.emit(this.game.G.PLAY_SOUND, 'cat');
+    this.scene.start(params);
+    // this.game.emitter.emit(this.game.G.PLAY_SOUND, 'cat');
   }
   update(){
     // Constant running loop

@@ -55,18 +55,35 @@ export default class Road extends Phaser.GameObjects.Container {
   }
 
   moveObject(){
+    if (this.game.model.gameOver){
+      return;
+    }
     this.object.y += this.vSpace / 20 + this.object.speed;
     if (Collision.checkCollide(this.car, this.object)){
-      this.car.alpha = .5;
-    }
-    else {
-      this.car.alpha = 1;
+      this.game.emitter.emit(this.game.G.PLAY_SOUND, 'boom');
+      this.game.model.gameOver = true;
+      this.scene.tweens.add({
+        targets: this.car,
+        duration: 1000,
+        y: this.game.config.height,
+        angle: -270 // run into this angle rotation
+      });
+      this.scene.time.addEvent({
+        delay: 2000,
+        callback: this.goGameOver,
+        callbackScope: this.scene,
+        loop: false
+      });
     }
     if (this.object.y > this.game.config.height + 32){
       this.scene.game.emitter.emit(this.scene.game.G.UP_POINTS, 1);
       this.object.destroy();
       this.addObject();
     }
+  }
+
+  goGameOver(){
+    this.scene.start('SceneOver');
   }
 
   makeLines(){
@@ -81,6 +98,9 @@ export default class Road extends Phaser.GameObjects.Container {
   }
 
   moveLines(){
+    if (this.game.model.gameOver){
+      return;
+    }
     this.lineGroup.children.iterate(child => {
       child.y += this.vSpace / 20;
     });
@@ -94,6 +114,10 @@ export default class Road extends Phaser.GameObjects.Container {
   }
 
   changeLane(){
+    if (this.game.model.gameOver){
+      return;
+    }
+    this.game.emitter.emit(this.game.G.PLAY_SOUND, 'whoosh');
     let lastPos = this.car.x;
     this.car.x = -1 * lastPos;
   }

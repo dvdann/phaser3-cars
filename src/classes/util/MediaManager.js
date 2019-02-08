@@ -17,16 +17,16 @@ class MediaManager {
   }
 
   playSound(key){
-    console.log('sound: ' + this.scene.game.model.soundOn);
     if (this.scene.game.model.soundOn){
+      console.log('sound: ' + this.scene.game.model.soundOn);
       let sound = this.scene.sound.add(key);
       sound.play();
     }
   }
 
   setBackgroundMusic(key){
-    console.log('music: ' + this.scene.game.model.musicOn);
     if (this.scene.game.model.musicOn){
+      console.log('music: ' + this.scene.game.model.musicOn);
       this.background = this.scene.sound.add(key, {
         volume: 0.5,
         loop: true

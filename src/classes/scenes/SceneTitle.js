@@ -13,6 +13,9 @@ export default class SceneTitle extends Phaser.Scene {
     this.load.image('musicOff', 'assets/ui/icons/music_off.png');
 
     this.load.audio('cat', ['assets/audio/meow.mp3', 'assets/audio/meow.ogg']);
+    this.load.audio('backgroundMusic', ['assets/audio/random-race.mp3', 'assets/audio/random-race.ogg']);
+    this.load.audio('boom', ['assets/audio/boom.mp3', 'assets/audio/boom.ogg']);
+    this.load.audio('whoosh', ['assets/audio/whoosh.mp3', 'assets/audio/whoosh.ogg']);
   }
   create(){
     console.log("Scene title");
@@ -25,9 +28,6 @@ export default class SceneTitle extends Phaser.Scene {
     let title = this.add.image(0, 0, 'title');
     Align.scaleToGameW(title, 0.8, this.game);
     this.alignGrid.placeAtIndex(38, title);
-
-    let mediaManager = new MediaManager({scene: this});
-    // mediaManager.setBackgroundMusic();
 
     let btnStart = new FlatButton({
       scene: this,

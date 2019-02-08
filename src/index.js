@@ -2,6 +2,7 @@ import 'phaser';
 import SceneMain from './SceneMain';
 import SceneTitle from './classes/scenes/SceneTitle';
 import SceneOver from './classes/scenes/SceneOver';
+import SceneLoad from './classes/scenes/SceneLoad';
 
 let game;
 
@@ -10,6 +11,7 @@ window.onload = () => {
   let config;
   let scenes = [];
 
+  // scenes.push(SceneLoad);
   scenes.push(SceneTitle);
   scenes.push(SceneOver);
   scenes.push(SceneMain);
