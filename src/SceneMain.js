@@ -8,19 +8,7 @@ export default class SceneMain extends Phaser.Scene {
   }
   preload(){
     // Load images and sounds
-    this.load.image('road', 'assets/road.jpg');
-    this.load.spritesheet('cars', 'assets/cars.png', {
-      frameWidth: 60,
-      frameHeight: 126
-    });
-    this.load.image('line', 'assets/line.png');
-    this.load.image('pcar1', 'assets/pcar1.png');
-    this.load.image('pcar2', 'assets/pcar2.png');
-    this.load.image('cone', 'assets/cone.png');
-    this.load.image('barrier', 'assets/barrier.png');
-
-    this.load.image('button1', 'assets/ui/buttons/2/1.png');
-    this.load.image('button2', 'assets/ui/buttons/2/4.png');
+    
   }
   create(){
     // Define our objects

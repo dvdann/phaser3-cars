@@ -11,7 +11,7 @@ window.onload = () => {
   let config;
   let scenes = [];
 
-  // scenes.push(SceneLoad);
+  scenes.push(SceneLoad);
   scenes.push(SceneTitle);
   scenes.push(SceneOver);
   scenes.push(SceneMain);

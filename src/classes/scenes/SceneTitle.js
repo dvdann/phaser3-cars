@@ -3,19 +3,7 @@ export default class SceneTitle extends Phaser.Scene {
     super('SceneTitle');
   }
   preload(){
-    this.load.image('title', 'assets/title.png');
-    this.load.image('button3', 'assets/ui/buttons/2/6.png');
 
-    this.load.image('toggleBack', 'assets/toggles/1.png');
-    this.load.image('sfxOn', 'assets/ui/icons/sfx_on.png');
-    this.load.image('sfxOff', 'assets/ui/icons/sfx_off.png');
-    this.load.image('musicOn', 'assets/ui/icons/music_on.png');
-    this.load.image('musicOff', 'assets/ui/icons/music_off.png');
-
-    this.load.audio('cat', ['assets/audio/meow.mp3', 'assets/audio/meow.ogg']);
-    this.load.audio('backgroundMusic', ['assets/audio/random-race.mp3', 'assets/audio/random-race.ogg']);
-    this.load.audio('boom', ['assets/audio/boom.mp3', 'assets/audio/boom.ogg']);
-    this.load.audio('whoosh', ['assets/audio/whoosh.mp3', 'assets/audio/whoosh.ogg']);
   }
   create(){
     console.log("Scene title");
