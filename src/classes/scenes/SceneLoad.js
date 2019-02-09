@@ -42,11 +42,11 @@ export default class SceneLoad extends Phaser.Scene {
     this.load.audio('whoosh', ['assets/audio/whoosh.mp3', 'assets/audio/whoosh.ogg']);
   }
   onProgress(val){
-    console.log(val);
     this.progText.text = Math.round(val*100) + "%";
     this.progBar.setPercent(val);
   }
   create(){
+    this.game.model = new Model(this.game);
     this.scene.start('SceneTitle');
   }
 }

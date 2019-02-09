@@ -26,6 +26,10 @@ export default class SceneTitle extends Phaser.Scene {
     this.alignGrid.placeAtIndex(93, btnStart);
 
     this.game.emitter.on('start_game', this.start_game.bind(this));
+
+    // installing some variable from MediaManager
+    let mediaManager = new MediaManager({scene: this});
+    mediaManager.setBackgroundMusic('backgroundMusic');
   }
   start_game(){
     this.scene.start('SceneMain');

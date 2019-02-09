@@ -25,8 +25,8 @@ class MediaManager {
   }
 
   setBackgroundMusic(key){
+    // console.log('setBackgroundMusic: ' + this.scene.game.model.musicOn);
     if (this.scene.game.model.musicOn){
-      console.log('music: ' + this.scene.game.model.musicOn);
       this.background = this.scene.sound.add(key, {
         volume: 0.5,
         loop: true

@@ -1,6 +1,5 @@
 import Road from './classes/Road';
 import ScoreBox from './classes/comps/ScoreBox'
-import Model from './classes/mc/Model'
 
 export default class SceneMain extends Phaser.Scene {
   constructor() {
@@ -8,7 +7,7 @@ export default class SceneMain extends Phaser.Scene {
   }
   preload(){
     // Load images and sounds
-    
+
   }
   create(){
     // Define our objects
@@ -18,11 +17,6 @@ export default class SceneMain extends Phaser.Scene {
     // PART WORKAROUND
 
     this.sb = new ScoreBox({scene: this});
-    this.game.model = new Model(this.game);
-
-    // installing some variable from MediaManager
-    let mediaManager = new MediaManager({scene: this});
-    // mediaManager.setBackgroundMusic('backgroundMusic');
 
     this.game.model.gameOver = false;
 

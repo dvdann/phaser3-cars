@@ -1,4 +1,4 @@
-export default class Model {
+class Model {
   constructor(game) {
     this._score = 0;
     this.soundOn = true;
