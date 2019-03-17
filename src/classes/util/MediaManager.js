@@ -18,7 +18,7 @@ class MediaManager {
 
   playSound(key){
     if (this.scene.game.model.soundOn){
-      console.log('sound: ' + this.scene.game.model.soundOn);
+      // console.log('sound: ' + this.scene.game.model.soundOn);
       let sound = this.scene.sound.add(key);
       sound.play();
     }
