@@ -1,6 +1,7 @@
 # System and IDE files
-
+.eslintrc
 package-lock.json
+
 # Vendors
 
 node_modules/
