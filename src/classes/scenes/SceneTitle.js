@@ -2,11 +2,8 @@ export default class SceneTitle extends Phaser.Scene {
   constructor() {
     super('SceneTitle');
   }
-  preload(){
-
-  }
   create(){
-    console.log("Scene title");
+    console.log("On SceneTitle");
     this.game.emitter = new Phaser.Events.EventEmitter(); // part of toolbox
     this.game.controller = new Controller(this.game);
 
