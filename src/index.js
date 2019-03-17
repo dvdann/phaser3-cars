@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 import SceneMain from './SceneMain';
 import SceneTitle from './classes/scenes/SceneTitle';
 import SceneOver from './classes/scenes/SceneOver';
@@ -40,4 +40,4 @@ window.onload = () => {
   game = new Phaser.Game(config);
   game.G = new Constants();
   game.isMobile = isMobile;
-}
+};
